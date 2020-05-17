@@ -39,6 +39,7 @@ namespace FileFinder
                 string[] drives = Directory.GetLogicalDrives();
                 foreach(string s in drives)
                 {
+                    //MessageBox.Show(s);
                     dirs.Push(s);
                 }
                 //run by every subdictionary
@@ -54,9 +55,10 @@ namespace FileFinder
                         foreach(string s in fArray)
                         {
                             //if File contains searched Filename push it to List
-                            if(new FileInfo(s).Name.ToLower().Contains(filename))
+                            if(new FileInfo(s).Name.ToLower().Contains(filename.ToLower()))
                             {
                                 fileInfoList.Add(new FileInfo(s));
+                                //MessageBox.Show("ja");
                             }
                         }
                     }
