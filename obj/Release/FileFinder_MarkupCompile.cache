@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Jerome\source\repos\FileFinder\FileFinder\obj\Debug\
+C:\Users\Jerome\source\repos\FileFinder\FileFinder\obj\Release\
 FileFinder
 none
 false
-DEBUG;TRACE
+TRACE
 C:\Users\Jerome\source\repos\FileFinder\FileFinder\App.xaml
 2188174587
 
-8-1555766911
+7-895183887
 13-1505183044
 MainWindow.xaml;ShowFiles.xaml;
 
-True
+False
 

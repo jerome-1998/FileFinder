@@ -1,0 +1,17 @@
+C:\Users\Jerome\source\repos\FileFinder\FileFinder\bin\Release\FileFinder.exe.config
+C:\Users\Jerome\source\repos\FileFinder\FileFinder\bin\Release\FileFinder.exe
+C:\Users\Jerome\source\repos\FileFinder\FileFinder\bin\Release\FileFinder.pdb
+C:\Users\Jerome\source\repos\FileFinder\FileFinder\obj\Release\FileFinder.csprojAssemblyReference.cache
+C:\Users\Jerome\source\repos\FileFinder\FileFinder\obj\Release\MainWindow.g.cs
+C:\Users\Jerome\source\repos\FileFinder\FileFinder\obj\Release\ShowFiles.g.cs
+C:\Users\Jerome\source\repos\FileFinder\FileFinder\obj\Release\App.g.cs
+C:\Users\Jerome\source\repos\FileFinder\FileFinder\obj\Release\FileFinder_MarkupCompile.cache
+C:\Users\Jerome\source\repos\FileFinder\FileFinder\obj\Release\FileFinder_MarkupCompile.lref
+C:\Users\Jerome\source\repos\FileFinder\FileFinder\obj\Release\MainWindow.baml
+C:\Users\Jerome\source\repos\FileFinder\FileFinder\obj\Release\ShowFiles.baml
+C:\Users\Jerome\source\repos\FileFinder\FileFinder\obj\Release\FileFinder.g.resources
+C:\Users\Jerome\source\repos\FileFinder\FileFinder\obj\Release\FileFinder.Properties.Resources.resources
+C:\Users\Jerome\source\repos\FileFinder\FileFinder\obj\Release\FileFinder.csproj.GenerateResource.cache
+C:\Users\Jerome\source\repos\FileFinder\FileFinder\obj\Release\FileFinder.csproj.CoreCompileInputs.cache
+C:\Users\Jerome\source\repos\FileFinder\FileFinder\obj\Release\FileFinder.exe
+C:\Users\Jerome\source\repos\FileFinder\FileFinder\obj\Release\FileFinder.pdb
