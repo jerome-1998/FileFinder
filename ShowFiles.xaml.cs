@@ -41,7 +41,6 @@ namespace FileFinder
         private void DataGridRow_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
             string path = ((FileInfo)dgFiles.SelectedItem).DirectoryName;
-            MessageBox.Show(path);
             Process.Start("explorer.exe", path);
         }
     }
