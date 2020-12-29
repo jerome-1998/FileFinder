@@ -13,8 +13,10 @@ namespace FileFinder
         //Set instance variable
         private List<FileInfo> fileInfoList;
         private string filename;
-        public FoundFiles(string filename)
+        private string selectedPath;
+        public FoundFiles(string filename, string selectedPath)
         {
+            this.selectedPath = selectedPath;
             this.filename = filename;
             fileInfoList = new List<FileInfo>();
         }
@@ -31,34 +33,59 @@ namespace FileFinder
         //Search all Files which contains the filename
         public void LookingForFiles()
         {
+            //generate list for all directorys
             Stack<string> dirs = new Stack<string>();
-            
-            try
+            if (selectedPath == "")
             {
+
                 //get all drives
                 string[] drives = Directory.GetLogicalDrives();
-                foreach(string s in drives)
+                foreach (string s in drives)
                 {
                     //MessageBox.Show(s);
                     dirs.Push(s);
                 }
-                //run by every subdictionary
-                while(dirs.Count>0)
+                //Push all found files to fileinfo List
+                PushFilesToList(dirs);
+            }
+            else
+            {
+                foreach (string s in Directory.GetDirectories(selectedPath))
                 {
+                    dirs.Push(s);
+                }
+                PushFilesToList(dirs);   
+            }
+            
+        }
+
+        private void PushFilesToList(Stack<string> dirs)
+        {
+            try
+            {
+
+                //run by every subdictionary
+                while (dirs.Count > 0)
+                {
+                    //take current directory from list
                     string currentDir = dirs.Pop();
+                    //generate subdirectory array
                     string[] subDirs;
                     try
                     {
+                        //Get all Directs in current direct
                         subDirs = Directory.GetDirectories(currentDir);
+                        //generate array for files
                         string[] fArray = null;
+                        //push all files in current direct in filearray
                         fArray = Directory.GetFiles(currentDir);
-                        foreach(string s in fArray)
+                        foreach (string s in fArray)
                         {
                             //if File contains searched Filename push it to List
-                            if(new FileInfo(s).Name.ToLower().Contains(filename.ToLower()))
+                            if (new FileInfo(s).Name.ToLower().Contains(filename.ToLower()))
                             {
+                                //push file to list
                                 fileInfoList.Add(new FileInfo(s));
-                                //MessageBox.Show("ja");
                             }
                         }
                     }
@@ -67,14 +94,15 @@ namespace FileFinder
                         //unauthorized Access or something else
                         continue;
                     }
-                    foreach(string sub in subDirs)
+                    foreach (string sub in subDirs)
                     {
+                        //enlarge directory list with subdirs
                         dirs.Push(sub);
                     }
                 }
 
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 //Do nothing
             }

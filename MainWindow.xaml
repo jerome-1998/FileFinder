@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FileFinder"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" WindowState="Maximized">
     <Window.Resources>
         <Style TargetType="Label">
             <Setter Property="FontFamily" Value="Calibri"></Setter>
@@ -30,6 +30,7 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -37,11 +38,32 @@
         </Grid.ColumnDefinitions>
 
         <Label VerticalAlignment="Bottom">Datei Suchen:</Label>
-        <TextBox Grid.Column="0" Grid.Row="1" Name="tbxFileName"></TextBox>
-        <Button Grid.Column="1" Grid.Row="1" Name="btnFindFile" Click="BtnFindFile_Click">Suchen</Button>
+        <Button VerticalAlignment="Bottom" Grid.Column="1" Content="Pfad auswählen" ToolTip="wenn kein Pfad ausgewählt wurde werden Alle Laufwerke ausgewählt, dies kann sehr lange dauern!" x:Name="btnPath" Click="BtnPath_Click"></Button>
+      
+        <Grid Grid.Column="0" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label VerticalAlignment="Bottom" Grid.Column="0"  Content="Ausgewählter Pfad:"></Label>
+            <Label VerticalAlignment="Bottom" Grid.Column="1" Content="{Binding Path=ShowPath}" x:Name="lblSelectedPath"></Label>
+        </Grid>
 
-        <Label Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Top" Name="lblResult">Noch nichts gesucht</Label>
-        <Label Grid.Column="1" Name="lblStatus"></Label>
-        <Button Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Name="btnShow" Click="BtnShow_Click">Anzeigen</Button>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Button Content="Pfad leeren" x:Name="btnClearPath" Click="BtnClearPath_Click"></Button>
+            <Label Name="lblStatus" Grid.Row="1"></Label>
+        </Grid>
+        
+
+        <TextBox Grid.Column="0" Grid.Row="2" Name="tbxFileName"></TextBox>
+        <Button Grid.Column="1" Grid.Row="2" Name="btnFindFile" Click="BtnFindFile_Click">Suchen</Button>
+
+        <Label Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" VerticalAlignment="Top" Name="lblResult">Noch nichts gesucht</Label>
+
+        <Button Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Name="btnShow" Click="BtnShow_Click" IsEnabled="{Binding Path=ShowResult}">Anzeigen</Button>
     </Grid>
 </Window>
